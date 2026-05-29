@@ -8,7 +8,6 @@ echo "===== INICIANDO API REGIME GERAL ====="
 
 java \
   -jar /calculadora/api-regime-geral.jar \
-  --spring.profiles.active=offline \
   --spring.datasource.url=jdbc:sqlite:/calculadora/db/calculadora-pro.db \
   >/tmp/regime.log 2>&1 &
 PID1=$!
@@ -21,6 +20,9 @@ java \
   --spring.datasource.url=jdbc:sqlite:/calculadora/db/split.db \
   >/tmp/split.log 2>&1 &
 PID2=$!
+
+echo "===== APPLICATION-OFFLINE ====="
+unzip -p /calculadora/api-regime-geral.jar BOOT-INF/classes/application-offline.yml || true
 
 echo ""
 echo "===== AGUARDANDO APIs ====="
