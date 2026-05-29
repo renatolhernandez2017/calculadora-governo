@@ -10,11 +10,7 @@ WORKDIR /calculadora
 COPY api-regime-geral.jar .
 COPY api-split-payment-simplificado.jar .
 COPY start.sh .
-
-RUN mkdir -p /calculadora/calculadora/db
-
-COPY calculadora/db/calculadora-pro.db /calculadora/calculadora/db/
-COPY calculadora/db/split.db /calculadora/calculadora/db/
+COPY calculadora ./calculadora
 
 RUN chmod +x /calculadora/start.sh
 
