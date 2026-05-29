@@ -6,16 +6,14 @@ mkdir -p /run/nginx
 echo ""
 echo "===== INICIANDO API REGIME GERAL ====="
 
-java \
-  -java -jar /calculadora/api-regime-geral.jar \
-    --spring.profiles.active=offline
+java -jar /calculadora/api-regime-geral.jar \
+  --spring.profiles.active=offline
 PID1=$!
 
 echo ""
 echo "===== INICIANDO API SPLIT PAYMENT ====="
 
-java \
-  -java -jar /calculadora/api-split-payment-simplificado.jar \
+java -jar /calculadora/api-split-payment-simplificado.jar \
   --spring.profiles.active=offline
 PID2=$!
 
