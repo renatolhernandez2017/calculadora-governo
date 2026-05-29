@@ -8,19 +8,12 @@ echo "===== INICIANDO NGINX ====="
 nginx
 
 echo ""
-echo "===== APPLICATION-OFFLINE ====="
-unzip -p /calculadora/api-regime-geral.jar BOOT-INF/classes/application-offline.yml || true
-
-echo ""
-echo "===== BANCOS ====="
-ls -lah /calculadora/db || true
-
-echo ""
 echo "===== INICIANDO API REGIME GERAL ====="
 
 java \
   -jar /calculadora/api-regime-geral.jar \
   --spring.profiles.active=offline \
+  --spring.datasource.url="jdbc:sqlite:file:/calculadora/db/calculadora-pro.db?mode=ro&date_class=TEXT&date_string_format=yyyy-MM-dd" \
   >/tmp/regime.log 2>&1 &
 
 PID1=$!
@@ -31,6 +24,7 @@ echo "===== INICIANDO API SPLIT PAYMENT ====="
 java \
   -jar /calculadora/api-split-payment-simplificado.jar \
   --spring.profiles.active=offline \
+  --spring.datasource.url="jdbc:sqlite:file:/calculadora/db/split.db?date_class=TEXT&date_string_format=yyyy-MM-dd" \
   >/tmp/split.log 2>&1 &
 
 PID2=$!
@@ -38,41 +32,41 @@ PID2=$!
 echo ""
 echo "===== AGUARDANDO APIs ====="
 
-for i in $(seq 1 120); do
+for i in $(seq 1 600); do
 
   if ! kill -0 $PID1 2>/dev/null; then
     echo ""
     echo "===== API REGIME GERAL ENCERRADA ====="
-    cat /tmp/regime.log || true
+    cat /tmp/regime.log
     exit 1
   fi
 
   if ! kill -0 $PID2 2>/dev/null; then
     echo ""
     echo "===== API SPLIT PAYMENT ENCERRADA ====="
-    cat /tmp/split.log || true
+    cat /tmp/split.log
     exit 1
   fi
 
-  echo ""
-  echo "===== STATUS ($i/120) ====="
+  REGIME=$(curl -s http://localhost:9101/health 2>/dev/null || true)
+  SPLIT=$(curl -s http://localhost:9102/health 2>/dev/null || true)
 
-  echo "--- PORTA 8080 ---"
-  curl -I http://localhost:8080 2>/dev/null || true
+  if echo "$REGIME" | grep -q "UP" && echo "$SPLIT" | grep -q "UP"; then
+    echo ""
+    echo "===== SISTEMA PRONTO ====="
+    break
+  fi
 
-  echo "--- PORTA 8081 ---"
-  curl -I http://localhost:8081 2>/dev/null || true
-
-  echo "--- REGIME LOG ---"
-  tail -20 /tmp/regime.log || true
-
-  echo "--- SPLIT LOG ---"
-  tail -20 /tmp/split.log || true
-
+  echo "Aguardando inicialização... ($i/600)"
   sleep 2
 done
 
 echo ""
-echo "===== SISTEMA PRONTO ====="
+echo "===== LOG REGIME ====="
+tail -50 /tmp/regime.log || true
+
+echo ""
+echo "===== LOG SPLIT ====="
+tail -50 /tmp/split.log || true
 
 wait $PID1 $PID2
