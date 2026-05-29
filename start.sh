@@ -4,6 +4,18 @@ set -e
 mkdir -p /run/nginx
 
 echo ""
+echo "===== INICIANDO NGINX ====="
+nginx
+
+echo ""
+echo "===== APPLICATION-OFFLINE ====="
+unzip -p /calculadora/api-regime-geral.jar BOOT-INF/classes/application-offline.yml || true
+
+echo ""
+echo "===== BANCOS ====="
+ls -lah /calculadora/db || true
+
+echo ""
 echo "===== INICIANDO API REGIME GERAL ====="
 
 java \
@@ -11,6 +23,7 @@ java \
   --spring.profiles.active=offline \
   --spring.datasource.url=jdbc:sqlite:/calculadora/db/calculadora-pro.db \
   >/tmp/regime.log 2>&1 &
+
 PID1=$!
 
 echo ""
@@ -18,41 +31,46 @@ echo "===== INICIANDO API SPLIT PAYMENT ====="
 
 java \
   -jar /calculadora/api-split-payment-simplificado.jar \
-  --spring.profiles.active=offline \
   --spring.datasource.url=jdbc:sqlite:/calculadora/db/split.db \
   >/tmp/split.log 2>&1 &
-PID2=$!
 
-echo "===== APPLICATION-OFFLINE ====="
-unzip -p /calculadora/api-regime-geral.jar BOOT-INF/classes/application-offline.yml || true
+PID2=$!
 
 echo ""
 echo "===== AGUARDANDO APIs ====="
 
 for i in $(seq 1 120); do
+
   if ! kill -0 $PID1 2>/dev/null; then
     echo ""
-    echo "API REGIME GERAL ENCERRADA"
-    echo "========== REGIME LOG =========="
+    echo "===== API REGIME GERAL ENCERRADA ====="
     cat /tmp/regime.log || true
     exit 1
   fi
 
   if ! kill -0 $PID2 2>/dev/null; then
     echo ""
-    echo "API SPLIT PAYMENT ENCERRADA"
-    echo "========== SPLIT LOG =========="
+    echo "===== API SPLIT PAYMENT ENCERRADA ====="
     cat /tmp/split.log || true
     exit 1
   fi
 
-  if curl -sf http://localhost:8080/api >/dev/null 2>&1; then
-    echo "Regime Geral disponível"
-    break
-  fi
+  echo ""
+  echo "===== STATUS ($i/120) ====="
 
-  echo "Aguardando inicialização... ($i/120)"
-  sleep 1
+  echo "--- PORTA 8080 ---"
+  curl -I http://localhost:8080 2>/dev/null || true
+
+  echo "--- PORTA 8081 ---"
+  curl -I http://localhost:8081 2>/dev/null || true
+
+  echo "--- REGIME LOG ---"
+  tail -20 /tmp/regime.log || true
+
+  echo "--- SPLIT LOG ---"
+  tail -20 /tmp/split.log || true
+
+  sleep 2
 done
 
 echo ""
