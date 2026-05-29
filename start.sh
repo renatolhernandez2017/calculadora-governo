@@ -21,7 +21,6 @@ echo "===== INICIANDO API REGIME GERAL ====="
 java \
   -jar /calculadora/api-regime-geral.jar \
   --spring.profiles.active=offline \
-  --spring.datasource.url=jdbc:sqlite:/calculadora/db/calculadora-pro.db \
   >/tmp/regime.log 2>&1 &
 
 PID1=$!
@@ -31,7 +30,7 @@ echo "===== INICIANDO API SPLIT PAYMENT ====="
 
 java \
   -jar /calculadora/api-split-payment-simplificado.jar \
-  --spring.datasource.url=jdbc:sqlite:/calculadora/db/split.db \
+  --spring.profiles.active=offline \
   >/tmp/split.log 2>&1 &
 
 PID2=$!
