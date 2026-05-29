@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/components/consultar-ncm-nbs/consultar-ncm-nbs.component.scss"],
+  "sourcesContent": [".form-consulta-container {\n  display: flex;\n  align-items: flex-start;\n  gap: 16px;\n\n  .date-picker-wrapper {\n    flex: 0 0 300px;\n    min-height: 80px; // Reserva espaço para a mensagem de erro\n  }\n\n  .button-wrapper {\n    flex: 0 0 auto;\n    margin-top: 28px; // Alinha o botão com o input do date picker\n  }\n}\n"],
+  "mappings": "AAAA,CAAA,wBACE,QAAA,KACA,YAAA,WACA,IAAA,KAEA,CALF,wBAKE,CAAA,oBACE,KAAA,EAAA,EAAA,MACA,WAAA,KAGF,CAVF,wBAUE,CAAA,eACE,KAAA,EAAA,EAAA,KACA,WAAA",
+  "names": []
+}

@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/environments/environment.offline.ts"],
+  "sourcesContent": ["export const environment = {\n    production: true,\n    APIEndpoint: '/api',\n    splitPaymentAPI: '/api',\n    //portal: '',\n    scriptPortal: '',\n\n    splitPaymentAPISwagger: 'http://localhost:8080/api/swagger-ui/index.html',\n    APIEndpointSwagger: 'http://localhost:8080/api/swagger-ui/index.html',\n\n    captchaSiteKey: '',\n    exigeCaptcha: false,\n\n    profile: 'offline'\n};"],
+  "mappings": "AAAO,IAAMA,EAAc,CACvBC,WAAY,GACZC,YAAa,OACbC,gBAAiB,OAEjBC,aAAc,GAEdC,uBAAwB,kDACxBC,mBAAoB,kDAEpBC,eAAgB,GAChBC,aAAc,GAEdC,QAAS",
+  "names": ["environment", "production", "APIEndpoint", "splitPaymentAPI", "scriptPortal", "splitPaymentAPISwagger", "APIEndpointSwagger", "captchaSiteKey", "exigeCaptcha", "profile"]
+}

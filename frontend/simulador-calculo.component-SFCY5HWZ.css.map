@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/components/simulador-calculo/simulador-calculo.component.scss"],
+  "sourcesContent": [":host ::ng-deep br-accordion * {\n    border: none !important;\n}\n\n.fieldset-wrapper {\n    position: relative;\n    border: 1px solid #888;\n    border-radius: 4px;\n    padding: 20px 10px 10px 10px;\n    margin-top: 10px;\n}\n\n.fieldset-legend {\n    position: absolute;\n    top: -2px;\n    left: 16px;\n    transform: translateY(-50%);\n    background-color: white;\n    padding: 0 6px;\n    // font-weight: bold;\n    // font-size: 0.875rem;\n    // color: #333333;\n    white-space: nowrap;\n}\n\n.acesso {\n    color: var(--blue-warm-vivid-70);\n    text-decoration: underline;\n    cursor: pointer;\n    \n    &:hover {\n        color: var(--blue-warm-vivid-80);\n        text-decoration: none;\n    }\n    \n    &:active {\n        color: var(--blue-warm-vivid-60);\n    }\n}"],
+  "mappings": "AAAA,MAAA,UAAA,aAAA,EACI,OAAA,eAGJ,CAAA,iBACI,SAAA,SACA,OAAA,IAAA,MAAA,KANJ,cAOI,IAPJ,QAQI,KAAA,KAAA,KACA,WAAA,KAGJ,CAAA,gBACI,SAAA,SACA,IAAA,KACA,KAAA,KACA,UAAA,WAAA,MACA,iBAAA,KAjBJ,QAkBI,EAAA,IAIA,YAAA,OAGJ,CAAA,OACI,MAAA,IAAA,sBACA,gBAAA,UACA,OAAA,QAEA,CALJ,MAKI,OACI,MAAA,IAAA,sBACA,gBAAA,KAGJ,CAVJ,MAUI,QACI,MAAA,IAAA",
+  "names": []
+}

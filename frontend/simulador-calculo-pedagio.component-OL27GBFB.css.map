@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/components/simulador-calculo-pedagio/simulador-calculo-pedagio.component.scss"],
+  "sourcesContent": [":host ::ng-deep .br-accordion {\n    border: none !important;\n}\n\n:host ::ng-deep .content {\n    border: none !important;\n    padding: 0 !important;\n}\n\n:host ::ng-deep .item {\n    border: none !important;\n}\n\n// :host ::ng-deep br-accordion * {\n//     border: none !important;\n// }"],
+  "mappings": "AAAA,MAAA,UAAA,CAAA,aACI,OAAA,eAGJ,MAAA,UAAA,CAAA,QACI,OAAA,eALJ,QAMI,YAGJ,MAAA,UAAA,CAAA,KACI,OAAA",
+  "names": []
+}

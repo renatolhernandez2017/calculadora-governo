@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/components/page-not-found/page-not-found.component.ts", "src/app/components/page-not-found/page-not-found.component.html"],
+  "sourcesContent": ["import { CommonModule } from '@angular/common';\nimport { Component } from '@angular/core';\n\n@Component({\n  selector: 'page-not-found',\n  templateUrl: './page-not-found.component.html',\n  styleUrl: './page-not-found.component.scss',\n  standalone: true,\n  imports: [CommonModule]\n})\nexport class PageNotFoundComponent {\n\n}\n", "<div>\n    Página não encontrada...\n</div>"],
+  "mappings": "qIAUA,IAAaA,GAAqB,IAAA,CAA5B,MAAOA,CAAqB,4CAArBA,EAAqB,2BAArBA,EAAqBC,UAAA,CAAA,CAAA,gBAAA,CAAA,EAAAC,MAAA,EAAAC,KAAA,EAAAC,SAAA,SAAAC,EAAAC,EAAA,CAAAD,EAAA,ICVlCE,EAAA,EAAA,KAAA,EACIC,EAAA,EAAA;CAAA,EACJC,EAAA,kBDMYC,CAAY,EAAAC,cAAA,CAAA,CAAA,SAEXX,CAAqB,GAAA",
+  "names": ["PageNotFoundComponent", "selectors", "decls", "vars", "template", "rf", "ctx", "\u0275\u0275elementStart", "\u0275\u0275text", "\u0275\u0275elementEnd", "CommonModule", "encapsulation"]
+}

@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/components/simulador-calculo/simulador-calculo-resultado/simulador-calculo-resultado.component.scss"],
+  "sourcesContent": [".rtc-versao {\n  font-size: 0.8em;\n  color: #666;\n}\n\n.rtc-info {\n    color: var(--blue-warm-vivid-70);\n}\n\n.aviso {\n    padding: 4px;\n    //background-color: #ffcd07;\n    width: fit-content;\n    color: red;\n    margin-bottom: 10px;\n}"],
+  "mappings": "AAAA,CAAA,WACE,UAAA,KACA,MAAA,KAGF,CAAA,SACI,MAAA,IAAA,sBAGJ,CAAA,MATA,QAUI,IAEA,MAAA,YACA,MAAA,IACA,cAAA",
+  "names": []
+}

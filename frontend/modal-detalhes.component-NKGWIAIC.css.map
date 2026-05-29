@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/components/simulador-calculo/modal-detalhes/modal-detalhes.component.scss"],
+  "sourcesContent": ["::ng-deep .modal {\n    z-index: 1052 !important;\n}\n\n::ng-deep .modal-backdrop {\n    z-index: 1052 !important;\n}"],
+  "mappings": "AAAA,UAAA,CAAA,MACI,QAAA,eAGJ,UAAA,CAAA,eACI,QAAA",
+  "names": []
+}

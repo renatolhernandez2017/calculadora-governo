@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/components/diversos/my-title/my-title.component.scss"],
+  "sourcesContent": [".rtc-versao {\n  font-size: 0.8em;\n  color: #666;\n}\n\n.versao-problema {\n  color: var(--red-vivid-50);\n}\n\n.rtc-titulo-grande {\n  font-size: var(--font-size-scale-up-06);\n  font-weight: var(--font-weight-regular);\n}\n\n.rtc-info {\n  color: var(--blue-warm-vivid-70);\n}\n\n.rtc-warning {\n  color: var(--red-vivid-50);\n}"],
+  "mappings": "AAAA,CAAA,WACE,UAAA,KACA,MAAA,KAGF,CAAA,gBACE,MAAA,IAAA,gBAGF,CAAA,kBACE,UAAA,IAAA,yBACA,YAAA,IAAA,uBAGF,CAAA,SACE,MAAA,IAAA,sBAGF,CAAA,YACE,MAAA,IAAA",
+  "names": []
+}

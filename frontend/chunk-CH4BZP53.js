@@ -1,0 +1,2 @@
+import{a as p}from"./chunk-LJLS4B3R.js";import{e as i,f as n}from"./chunk-2SIUNQMU.js";import{$ as a,ea as e}from"./chunk-6VE4YDTK.js";var f=(()=>{class t{http;baseUrl=p.APIEndpoint;constructor(o){this.http=o}obterUrl(o){let r=new i;return r=r.append("platform",o),this.http.get(`${this.baseUrl}/calculadora/download/url`,{params:r})}static \u0275fac=function(r){return new(r||t)(e(n))};static \u0275prov=a({token:t,factory:t.\u0275fac,providedIn:"root"})}return t})();export{f as a};
+//# sourceMappingURL=chunk-CH4BZP53.js.map

@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/components/simulador-base-calculo/simulador-base-calculo-is-bens/simulador-base-calculo-is-bens.component.scss"],
+  "sourcesContent": [":host ::ng-deep input {\n    text-align: right !important;\n}"],
+  "mappings": "AAAA,MAAA,UAAA,MACI,WAAA",
+  "names": []
+}

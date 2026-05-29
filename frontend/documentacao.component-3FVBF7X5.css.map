@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/components/documentacao/documentacao.component.scss"],
+  "sourcesContent": [".xx-opcao {\n    padding: 10px;\n    cursor: pointer;\n    user-select: none;\n}\n\n.xx-opcao:hover {\n    border-radius: 8px;\n    box-shadow:\n        0 var(--surface-offset-sm) var(--surface-blur-lg) 0 rgba(var(--pure-100-rgb), var(--surface-opacity-xs));\n}\n\n.xx-opcao:active {\n    transform: translateY(2px);\n    box-shadow:\n        0 calc(var(--surface-offset-sm) * 0.5) calc(var(--surface-blur-lg) * 0.5) 0 rgba(var(--pure-100-rgb), var(--surface-opacity-sm)); /* Reduced shadow when pressed */\n    opacity: 0.9;\n    background-color: var(--blue-warm-vivid-5);\n}\n\n.rtc-link {\n    color: var(--blue-warm-vivid-70);\n    text-decoration: none;\n    cursor: pointer;\n}\n\n.rtc-link:hover {\n    color: var(--blue-warm-vivid-70);\n    text-decoration: underline;\n    cursor: pointer;\n}"],
+  "mappings": "AAAA,CAAA,SAAA,QACI,KACA,OAAA,QACA,oBAAA,KAAA,YAAA,KAGJ,CANA,QAMA,OANA,cAOI,IACA,WACI,EAAA,IAAA,qBAAA,IAAA,mBAAA,EAAA,KAAA,IAAA,eAAA,CAAA,IAAA,uBAGR,CAZA,QAYA,QACI,UAAA,WAAA,KACA,WACI,EAAA,KAAA,IAAA,qBAAA,EAAA,IAAA,KAAA,IAAA,mBAAA,EAAA,IAAA,EAAA,KAAA,IAAA,eAAA,CAAA,IAAA,uBACJ,QAAA,GACA,iBAAA,IAAA,qBAGJ,CAAA,SACI,MAAA,IAAA,sBACA,gBAAA,KACA,OAAA,QAGJ,CANA,QAMA,OACI,MAAA,IAAA,sBACA,gBAAA,UACA,OAAA",
+  "names": []
+}

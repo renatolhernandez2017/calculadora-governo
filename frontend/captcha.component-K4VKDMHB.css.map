@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/components/captcha/captcha.component.scss"],
+  "sourcesContent": [".captcha-container {\n  position: relative;\n}\n\n.captcha-test-button {\n  margin: 10px 0;\n}\n\n.captcha-status {\n  .alert {\n    border-radius: 4px;\n    margin-bottom: 0;\n    font-size: 0.875rem;\n  }\n}\n\n.development-notice {\n  text-align: center;\n  font-style: italic;\n}\n\n/* Ensure hCaptcha is properly hidden when invisible */\n[ng-hcaptcha] {\n  &.invisible {\n    position: absolute;\n    left: -9999px;\n    top: -9999px;\n    opacity: 0;\n    pointer-events: none;\n  }\n}\n"],
+  "mappings": "AAAA,CAAA,kBACE,SAAA,SAGF,CAAA,oBAJA,OAKE,KAAA,EAIA,CAAA,eAAA,CAAA,MATF,cAUI,IACA,cAAA,EACA,UAAA,QAIJ,CAAA,mBACE,WAAA,OACA,WAAA,OAKA,CAAA,YAAA,CAAA,UACE,SAAA,SACA,KAAA,QACA,IAAA,QACA,QAAA,EACA,eAAA",
+  "names": []
+}

@@ -1,0 +1,3 @@
+import{x as m}from"./chunk-6OXDISZQ.js";import{Pb as o,Qb as i,mb as t,mc as a}from"./chunk-6VE4YDTK.js";import"./chunk-CS7K6LXP.js";var u=(()=>{class e{static \u0275fac=function(n){return new(n||e)};static \u0275cmp=t({type:e,selectors:[["page-not-found"]],decls:2,vars:0,template:function(n,p){n&1&&(o(0,"div"),a(1,` P\xE1gina n\xE3o encontrada...
+`),i())},dependencies:[m],encapsulation:2})}return e})();export{u as PageNotFoundComponent};
+//# sourceMappingURL=chunk-T6UJI7AD.js.map

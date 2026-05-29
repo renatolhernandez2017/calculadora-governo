@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/components/simulador-split-payment-simplificado/simulador-simplificado-resultado/simulador-simplificado-resultado.component.scss"],
+  "sourcesContent": [".aviso {\n    padding: 4px;\n    //background-color: #ffcd07;\n    width: fit-content;\n    color: red;\n    margin-bottom: 10px;\n}"],
+  "mappings": "AAAA,CAAA,MAAA,QACI,IAEA,MAAA,YACA,MAAA,IACA,cAAA",
+  "names": []
+}
