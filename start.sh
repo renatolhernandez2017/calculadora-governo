@@ -10,4 +10,5 @@ echo "===== BANCOS ====="
 ls -lah /calculadora/db
 
 echo "===== TESTE REGIME ====="
-java -jar /calculadora/api-regime-geral.jar
+java -jar /calculadora/api-regime-geral.jar \
+  --spring.profiles.active=offline
