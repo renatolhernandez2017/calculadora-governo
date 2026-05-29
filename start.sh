@@ -9,11 +9,20 @@ mkdir -p /run/nginx
 
 nginx
 
-java -jar /calculadora/api-regime-geral.jar --spring.profiles.active=${profile} >/tmp/regime.log 2>&1 &
-PID1=$!
+echo "PWD:"
+pwd
 
-java -jar /calculadora/api-split-payment-simplificado.jar --spring.profiles.active=local >/tmp/split.log 2>&1 &
-PID2=$!
+echo "DBS:"
+find / -name "*.db" 2>/dev/null
+
+echo "JARS:"
+find / -name "*.jar" 2>/dev/null
+
+java -jar /calculadora/api-regime-geral.jar \
+  --spring.profiles.active=offline &
+
+java -jar /calculadora/api-split-payment-simplificado.jar \
+  --spring.profiles.active=local &
 
 echo "Aguardando APIs..."
 
