@@ -1,6 +1,7 @@
 FROM eclipse-temurin:21-jre
 
 RUN apt-get update &&     apt-get install -y nginx curl &&     rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y unzip
 
 COPY frontend /usr/share/nginx/html
 COPY nginx.conf /etc/nginx/nginx.conf
