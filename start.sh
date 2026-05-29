@@ -9,15 +9,6 @@ mkdir -p /run/nginx
 
 nginx
 
-echo "PWD:"
-pwd
-
-echo "DBS:"
-find / -name "*.db" 2>/dev/null
-
-echo "JARS:"
-find / -name "*.jar" 2>/dev/null
-
 java -jar /calculadora/api-regime-geral.jar \
   --spring.profiles.active=offline &
 
