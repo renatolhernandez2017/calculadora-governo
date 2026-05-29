@@ -6,21 +6,26 @@ mkdir -p /run/nginx
 echo ""
 echo "===== INICIANDO API REGIME GERAL ====="
 
-java -jar /calculadora/api-regime-geral.jar \
-  --spring.profiles.active=offline
+java \
+  -jar /calculadora/api-regime-geral.jar \
+  --spring.profiles.active=offline \
+  --spring.datasource.url=jdbc:sqlite:/calculadora/db/calculadora-pro.db \
+  >/tmp/regime.log 2>&1 &
 PID1=$!
 
 echo ""
 echo "===== INICIANDO API SPLIT PAYMENT ====="
 
-java -jar /calculadora/api-split-payment-simplificado.jar \
-  --spring.profiles.active=offline
+java \
+  -jar /calculadora/api-split-payment-simplificado.jar \
+  --spring.datasource.url=jdbc:sqlite:/calculadora/db/split.db \
+  >/tmp/split.log 2>&1 &
 PID2=$!
 
 echo ""
 echo "===== AGUARDANDO APIs ====="
 
-for i in $(seq 1 30); do
+for i in $(seq 1 10); do
   if ! kill -0 $PID1 2>/dev/null; then
     echo ""
     echo "API REGIME GERAL ENCERRADA"
