@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: calculadora-governo
+    runtime: docker
+    region: oregon
+    plan: free
+    
+    # Build configuration
+    dockerfilePath: ./Dockerfile
+    
+    # Environment variables (opcional)
+    envVars:
+      - key: JAVA_OPTS
+        value: "-Xmx512m"
+    
+    # Port exposed
+    port: 80
+    
+    # Health check
+    healthCheckPath: /
+    healthCheckInterval: 30
