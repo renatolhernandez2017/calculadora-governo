@@ -30,17 +30,34 @@ fi
 
 echo "✓ Processo Java está rodando (PID: $PID1)"
 echo ""
-echo "Testando conectividade da API..."
-echo "(Exibindo log da aplicação em tempo real...)"
+echo "Aguardando inicialização completa da aplicação..."
+echo "(Monitorando logs...)"
 echo ""
 
-# Health check com retry e tail do log
-max_attempts=30
-attempt=0
+# Aguarda padrão específico no log que indica app pronto
+timeout=120
+elapsed=0
+while [ $elapsed -lt $timeout ]; do
+  if grep -q "Tomcat started on port\|Application started\|Started CalculadoraTributoApplication" /tmp/api.log 2>/dev/null; then
+    echo "✓ Aplicação detectada como pronta!"
+    break
+  fi
+  
+  echo "[$elapsed/$timeout] Aguardando inicialização..."
+  sleep 2
+  elapsed=$((elapsed + 2))
+done
 
-# Inicia tail do log em background
-tail -f /tmp/api.log 2>/dev/null &
-TAIL_PID=$!
+# Mostra últimas linhas do log
+echo ""
+echo "Últimas linhas do log:"
+tail -20 /tmp/api.log
+echo ""
+
+# Agora faz health check
+echo "Testando health endpoint..."
+max_attempts=20
+attempt=0
 
 while [ $attempt -lt $max_attempts ]; do
   attempt=$((attempt + 1))
@@ -48,24 +65,18 @@ while [ $attempt -lt $max_attempts ]; do
   health=$(curl -s --max-time 2 http://127.0.0.1:3000/health 2>/dev/null || echo "")
   
   if echo "$health" | grep -q "UP"; then
-    echo ""
-    echo "✓ API está UP e respondendo!"
-    kill $TAIL_PID 2>/dev/null || true
+    echo "✓ Health check retornou UP!"
     break
   fi
   
-  echo "[$attempt/$max_attempts] Testando health check..."
-  sleep 3
+  echo "[$attempt/$max_attempts] Health check ainda não respondeu..."
+  sleep 2
 done
 
-if [ $attempt -eq $max_attempts ]; then
+if ! echo "$health" | grep -q "UP"; then
   echo ""
-  echo "❌ Timeout! API não respondeu ao health check após $((max_attempts * 3)) segundos"
-  kill $TAIL_PID 2>/dev/null || true
-  echo ""
-  echo "========== Log da aplicação =========="
-  cat /tmp/api.log
-  echo "======================================"
+  echo "❌ ERRO: Aplicação não respondeu ao health check"
+  echo "Health response: $health"
   exit 1
 fi
 
